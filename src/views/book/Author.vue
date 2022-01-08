@@ -2,24 +2,33 @@
   <div class="author">
     <div class="author-title">author</div>
     <div class="author-content">
-      {{ authors }}
+      {{ this[COMMAND.AUTHOR_FILTER] }} | {{ this[COMMAND.AUTHOR] }} |
+      {{ store.getter(COMMAND.AUTHOR_FILTER) }} |
+      {{ store.get(COMMAND.AUTHOR) }}
     </div>
   </div>
 </template>
 
 <script>
-import { authorState, authorActions } from "@/store/modules/book/author";
+import StoreHandler from "@/store/handler/StoreHandler";
+import {
+  authorState,
+  authorGetters,
+  COMMAND,
+} from "@/store/modules/book/author";
 
 export default {
   name: "AUTHOR",
+  data: () => ({
+    COMMAND: COMMAND,
+    store: new StoreHandler("book/author"),
+  }),
   computed: {
-    ...authorState(["authors"]),
-  },
-  methods: {
-    ...authorActions(["setAuthors"]),
+    ...authorState([COMMAND.AUTHOR]),
+    ...authorGetters([COMMAND.AUTHOR_FILTER]),
   },
   mounted() {
-    this.setAuthors();
+    this.store.set(COMMAND.AUTHOR);
   },
 };
 </script>

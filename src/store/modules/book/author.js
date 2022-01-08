@@ -1,22 +1,27 @@
 import { createNamespacedHelpers } from "vuex";
 
+export const COMMAND = {
+  AUTHOR: "AUTHOR",
+  AUTHOR_FILTER: "AUTHOR_FILTER",
+};
+
 export default {
   state: {
-    authors: [],
+    [COMMAND.AUTHOR]: [],
   },
   getters: {
-    authors(state) {
-      return state.authors;
+    [COMMAND.AUTHOR_FILTER](state) {
+      return state[COMMAND.AUTHOR].filter((author) => author === "김길동");
     },
   },
   mutations: {
-    setAuthors(state, list) {
-      state.authors = list;
+    [COMMAND.AUTHOR](state, list) {
+      state[COMMAND.AUTHOR] = list;
     },
   },
   actions: {
-    setAuthors({ commit }) {
-      commit("setAuthors", ["이바노브", "하야시", "김길동"]);
+    [COMMAND.AUTHOR]({ commit }) {
+      commit(COMMAND.AUTHOR, ["이바노브", "하야시", "김길동"]);
     },
   },
 };

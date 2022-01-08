@@ -1,22 +1,22 @@
-import { createNamespacedHelpers } from "vuex";
+import { createNamespacedHelpers } from 'vuex';
+
+export const COMMAND = {
+  BOOK: 'BOOK',
+};
 
 export default {
   state: {
-    books: [],
+    [COMMAND.BOOK]: [],
   },
-  getters: {
-    books(state) {
-      return state.books;
-    },
-  },
+  getters: {},
   mutations: {
-    setBooks(state, list) {
-      state.books = list;
+    [COMMAND.BOOK](state, list) {
+      state[COMMAND.BOOK] = list;
     },
   },
   actions: {
-    setBooks({ commit }) {
-      commit("setBooks", ["1권", "2권", "3권"]);
+    [COMMAND.BOOK]({ commit }) {
+      commit(COMMAND.BOOK, ['1권', '2권', '3권']);
     },
   },
 };
@@ -25,4 +25,4 @@ export const {
   mapState: bookState,
   mapGetters: bookGetters,
   mapActions: bookActions,
-} = createNamespacedHelpers("book");
+} = createNamespacedHelpers('book');

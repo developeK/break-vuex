@@ -2,24 +2,28 @@
   <div class="user">
     <div class="user-title">user</div>
     <div class="user-content">
-      {{ users }}
+      {{ this[COMMAND.USER] }} |
+      {{ store.get(COMMAND.USER) }}
     </div>
   </div>
 </template>
 
 <script>
-import { userState, userActions } from "@/store/modules/user";
+import StoreHandler from "@/store/handler/StoreHandler";
+import { userState, COMMAND } from "@/store/modules/user";
 
 export default {
   name: "USER",
+  data: () => ({
+    COMMAND: COMMAND,
+    store: new StoreHandler("user"),
+  }),
   computed: {
-    ...userState(["users"]),
+    ...userState([COMMAND.USER]),
   },
-  methods: {
-    ...userActions(["setUsers"]),
-  },
+  methods: {},
   mounted() {
-    this.setUsers();
+    this.store.set(COMMAND.USER);
   },
 };
 </script>

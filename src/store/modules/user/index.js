@@ -1,22 +1,22 @@
-import { createNamespacedHelpers } from "vuex";
+import { createNamespacedHelpers } from 'vuex';
+
+export const COMMAND = {
+  USER: 'USER',
+};
 
 export default {
   state: {
-    users: [],
+    [COMMAND.USER]: [],
   },
-  getters: {
-    users(state) {
-      return state.users;
-    },
-  },
+  getters: {},
   mutations: {
-    setUsers(state, list) {
-      state.users = list;
+    [COMMAND.USER](state, list) {
+      state[COMMAND.USER] = list;
     },
   },
   actions: {
-    setUsers({ commit }) {
-      commit("setUsers", ["A", "B", "C"]);
+    [COMMAND.USER]({ commit }) {
+      commit(COMMAND.USER, ['A', 'B', 'C']);
     },
   },
 };
@@ -25,4 +25,4 @@ export const {
   mapState: userState,
   mapGetters: userGetters,
   mapActions: userActions,
-} = createNamespacedHelpers("user");
+} = createNamespacedHelpers('user');
