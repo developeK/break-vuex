@@ -1,4 +1,4 @@
-import { createNamespacedHelpers } from 'vuex';
+import { createNamespacedHelpers } from "vuex";
 
 export default {
   state: {
@@ -16,7 +16,7 @@ export default {
   },
   actions: {
     setUsers({ commit }) {
-      commit('setUsers', ['A', 'B', 'C']);
+      commit("setUsers", ["A", "B", "C"]);
     },
   },
 };
@@ -25,4 +25,4 @@ export const {
   mapState: userState,
   mapGetters: userGetters,
   mapActions: userActions,
-} = createNamespacedHelpers('user');
+} = createNamespacedHelpers("user");

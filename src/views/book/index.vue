@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import { bookState, bookActions } from '@/store/modules/book';
+import { bookState, bookActions } from "@/store/modules/book";
 
 export default {
-  name: 'BOOK',
+  name: "BOOK",
   computed: {
-    ...bookState(['books']),
+    ...bookState(["books"]),
   },
   methods: {
-    ...bookActions(['setBooks']),
+    ...bookActions(["setBooks"]),
   },
   mounted() {
     this.setBooks();

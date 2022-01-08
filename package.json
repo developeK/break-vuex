@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "node generator.js & vue-cli-service serve",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -19,31 +19,14 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "6",
-    "sass-loader": "10",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "4.36.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "prettier": "^2.2.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
 }

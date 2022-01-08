@@ -1,16 +1,16 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
 
 Vue.use(Vuex);
 
 // https://webpack.kr/guides/dependency-management
 // https://stackoverflow.com/questions/61093836/vue-js-auto-register-vuex-modules-in-a-specific-way
-const context = require.context('./modules', true, /.js/);
+const context = require.context("./modules", true, /.js/);
 const modules = {};
 
 context.keys().forEach((file) => {
   // create the module name from file
-  const moduleName = file.replace(/(\.\/|\/index\.js$|\.js$)/g, '');
+  const moduleName = file.replace(/(\.\/|\/index\.js$|\.js$)/g, "");
 
   // register file context under module name
   modules[moduleName] = context(file).default || context(file);
@@ -30,7 +30,7 @@ export default new Vuex.Store({
   },
   actions: {
     setDialog({ commit }) {
-      commit('setDialog', true);
+      commit("setDialog", true);
     },
   },
   modules,

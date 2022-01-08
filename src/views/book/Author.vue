@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import { authorState, authorActions } from '@/store/modules/book/author';
+import { authorState, authorActions } from "@/store/modules/book/author";
 
 export default {
-  name: 'AUTHOR',
+  name: "AUTHOR",
   computed: {
-    ...authorState(['authors']),
+    ...authorState(["authors"]),
   },
   methods: {
-    ...authorActions(['setAuthors']),
+    ...authorActions(["setAuthors"]),
   },
   mounted() {
     this.setAuthors();

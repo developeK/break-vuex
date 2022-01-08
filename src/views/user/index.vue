@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import { userState, userActions } from '@/store/modules/user';
+import { userState, userActions } from "@/store/modules/user";
 
 export default {
-  name: 'USER',
+  name: "USER",
   computed: {
-    ...userState(['users']),
+    ...userState(["users"]),
   },
   methods: {
-    ...userActions(['setUsers']),
+    ...userActions(["setUsers"]),
   },
   mounted() {
     this.setUsers();
